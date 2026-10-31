@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/lacak/:token", "destination": "/lacak/index.html" }
+  ]
+}

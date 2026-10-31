@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Lacak Proyek · Mozaic by Genius Creative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#f3f1ec; --paper:#fff; --ink:#1d2430; --ink-2:#5b6474; --line:#dcd7cc; --rail:#c9c3b6;
+  --accent:#1f4e79; --accent-soft:#e3ecf5; --good:#2f7d4f; --good-soft:#e1f1e6; --warn:#b7791f; --warn-soft:#f8ecd4; --bad:#b4342c;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif; --body:"Barlow",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45;padding:0 max(16px,env(safe-area-inset-left)) 56px max(16px,env(safe-area-inset-right))}
+.wrap{max-width:680px;margin:0 auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0 14px;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.3px;color:var(--accent);text-decoration:none}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-2)}
+.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:1.2px;font-size:12px;color:var(--ink-2);font-weight:600}
+h1{font-family:var(--display);font-weight:700;font-size:30px;line-height:1.05;margin:18px 0 4px;text-wrap:balance}
+.sub{color:var(--ink-2);font-size:14px}
+.summary{display:grid;grid-template-columns:1fr auto;gap:8px 20px;align-items:end;padding:18px 0 6px}
+.pct{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.big{font-family:var(--display);font-weight:700;font-size:48px;line-height:1}
+.bar{grid-column:1/-1;position:relative;height:12px;background:var(--line);border-radius:999px}
+.bar .fill{height:100%;background:var(--accent);border-radius:999px;transition:width .5s}
+.bar .plan{position:absolute;top:-5px;width:2px;height:22px;background:var(--ink);opacity:.7}
+.bar .plan::after{content:attr(data-label);position:absolute;top:24px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;color:var(--ink-2);white-space:nowrap}
+.meta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--ink-2);font-size:13px;padding-top:24px}
+.meta b{color:var(--ink);font-family:var(--mono);font-weight:600}
+.chip{display:inline-block;font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.6px;text-transform:uppercase;padding:3px 8px;border-radius:999px;line-height:1.2;vertical-align:middle}
+.chip.good{background:var(--good-soft);color:var(--good)} .chip.acc{background:var(--accent-soft);color:var(--accent)} .chip.warn{background:var(--warn-soft);color:var(--warn)}
+.section-title{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-2);margin:28px 0 12px}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--rail)}
+.node{position:relative;padding:0 0 24px 36px}
+.node .dot{position:absolute;left:4px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--rail)}
+.node.good .dot{border-color:var(--good);background:var(--good)} .node.acc .dot{border-color:var(--accent);background:var(--accent)} .node.warn .dot{border-color:var(--warn);background:var(--warn)} .node.hollow .dot{border-style:dashed}
+.node.current .dot{box-shadow:0 0 0 5px var(--accent-soft)}
+.when{font-family:var(--mono);font-size:12px;color:var(--ink-2);display:flex;gap:10px;flex-wrap:wrap}
+.what{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.15;margin:2px 0 6px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:grid;gap:8px}
+.entry{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+.entry:last-child{border-bottom:0;padding-bottom:0}
+.entry .vol{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+.fotos{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px}
+.fotos a{display:block;aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:var(--accent-soft);color:var(--accent);font-size:12px;text-decoration:none;display:flex;align-items:center;justify-content:center}
+.fotos img{width:100%;height:100%;object-fit:cover;display:block}
+.kv{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--ink-2)}
+.kv b{color:var(--ink);font-family:var(--mono);font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.n{font-family:var(--mono);text-align:right;white-space:nowrap}
+.mini{height:6px;background:var(--line);border-radius:999px;min-width:70px;overflow:hidden}
+.mini span{display:block;height:100%;background:var(--good)}
+details summary{cursor:pointer;list-style:none} details summary::-webkit-details-marker{display:none}
+.note{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;color:var(--ink-2);font-size:14px;margin-top:20px}
+.note b{color:var(--ink)}
+footer{margin-top:40px;font-size:12px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:480px){.big{font-size:40px} .summary{grid-template-columns:1fr} .entry{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){.bar .fill{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="/">Mozaic<small>CV. Jenius Kreatifindo</small></a>
+    <span class="eyebrow">Lacak proyek</span>
+  </header>
+
+  <div id="status" class="note">Memuat data proyek…</div>
+
+  <div id="body" hidden>
+    <div class="eyebrow" id="klien"></div>
+    <h1 id="nama"></h1>
+    <div class="sub" id="lokasi"></div>
+
+    <section class="summary">
+      <div><div class="eyebrow">Progres pekerjaan</div><div class="big pct" id="aktual">0%</div></div>
+      <div style="text-align:right"><div class="eyebrow">Status</div><div id="statuschip" style="margin-top:8px"></div></div>
+      <div class="bar"><div class="fill" id="fill" style="width:0%"></div><div class="plan" id="plan" data-label="rencana" hidden></div></div>
+      <div class="meta" id="meta"></div>
+    </section>
+
+    <div class="section-title">Perjalanan proyek</div>
+    <ol class="tl" id="tl"></ol>
+
+    <details>
+      <summary class="section-title">Rincian per item pekerjaan ▸</summary>
+      <table><tbody id="itemrows"></tbody></table>
+    </details>
+  </div>
+
+  <footer>Progres yang ditampilkan adalah pekerjaan yang sudah diperiksa tim Mozaic dari foto lapangan harian. Pertanyaan tentang proyek ini: balas pesan WhatsApp dari kami.</footer>
+</div>
+
+<script>
+(function(){
+  const API = 'https://bmksputrjevqomfukkxq.supabase.co/rest/v1/rpc/lacak_proyek';
+  const KEY = 'sb_publishable_UpkGXqL7RpVNuO3mxefZrg_G9KtFduS';
+  const $ = id => document.getElementById(id);
+  const hari = ['Min','Sen','Sel','Rab','Kam','Jum','Sab'], bulan = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  const fmtDate = iso => { if(!iso) return '—'; const d = new Date(iso + 'T00:00:00'); return hari[d.getDay()] + ', ' + d.getDate() + ' ' + bulan[d.getMonth()] + ' ' + d.getFullYear(); };
+  const fmtPct = v => v == null ? '—' : (Math.round(Number(v) * 10) / 10).toLocaleString('id-ID') + '%';
+  const fmtNum = v => Number(v || 0).toLocaleString('id-ID', {maximumFractionDigits: 2});
+  const today = (() => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); })();
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  // token dari /lacak/<token>, ?t=<token>, atau #<token>
+  function getToken(){
+    const parts = location.pathname.split('/').filter(Boolean);
+    const i = parts.indexOf('lacak');
+    if (i >= 0 && parts[i+1] && parts[i+1] !== 'index.html') return parts[i+1];
+    const q = new URLSearchParams(location.search).get('t'); if (q) return q;
+    return (location.hash || '').slice(1);
+  }
+  // foto Drive -> thumbnail bila tautan file Drive, selain itu tautan biasa
+  function fotoHtml(url, i){
+    const m = String(url).match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=)([\w-]+)/);
+    const safe = esc(url);
+    if (m) return '<a href="' + safe + '" target="_blank" rel="noopener"><img loading="lazy" alt="Foto progres ' + (i+1) + '" src="https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w480" onerror="this.replaceWith(document.createTextNode(\'Foto ' + (i+1) + '\'))"></a>';
+    return '<a href="' + safe + '" target="_blank" rel="noopener">Foto ' + (i+1) + '</a>';
+  }
+
+  function render(d){
+    const p = d.proyek || {};
+    $('status').hidden = true; $('body').hidden = false;
+    document.title = 'Lacak ' + (p.nama || 'Proyek') + ' · Mozaic';
+    $('klien').textContent = p.klien || '';
+    $('nama').textContent = p.nama || 'Proyek';
+    $('lokasi').textContent = p.lokasi || '';
+    const aktual = Number(p.aktual_pct || 0), rencana = p.rencana_pct;
+    $('aktual').textContent = fmtPct(aktual);
+    $('fill').style.width = Math.min(100, aktual) + '%';
+    const plan = $('plan');
+    if (rencana != null && p.status === 'Berjalan'){ plan.hidden = false; plan.style.left = 'calc(' + Math.min(100, Number(rencana)) + '% - 1px)'; plan.dataset.label = 'rencana ' + fmtPct(rencana); } else plan.hidden = true;
+    $('statuschip').innerHTML = p.status === 'Selesai' ? '<span class="chip good">Selesai</span>' : p.status === 'Berjalan' ? '<span class="chip acc">Sedang dikerjakan</span>' : '<span class="chip warn">' + esc(p.status || '') + '</span>';
+    const sisa = p.selesai_rencana ? Math.round((new Date(p.selesai_rencana + 'T00:00:00') - new Date(today + 'T00:00:00')) / 864e5) : null;
+    $('meta').innerHTML = [
+      p.no_po ? 'PO <b>' + esc(p.no_po) + '</b>' : '',
+      'Mulai <b>' + fmtDate(p.mulai) + '</b>',
+      p.selesai_aktual ? 'Selesai <b>' + fmtDate(p.selesai_aktual) + '</b>' : p.selesai_rencana ? 'Target selesai <b>' + fmtDate(p.selesai_rencana) + '</b>' + (sisa != null && p.status === 'Berjalan' ? ' (' + (sisa >= 0 ? sisa + ' hari lagi' : Math.abs(sisa) + ' hari lewat target') + ')' : '') : ''
+    ].filter(Boolean).join('<span aria-hidden="true"> · </span>');
+
+    const nodes = [];
+    if (p.selesai_rencana && !p.selesai_aktual) nodes.push({date: p.selesai_rencana, order: 3, cls: 'hollow', title: 'Target selesai', body: ''});
+    if (p.selesai_aktual) nodes.push({date: p.selesai_aktual, order: 3, cls: 'good', title: 'Pekerjaan selesai', body: ''});
+    for (const m of (d.mingguan || [])){
+      nodes.push({date: m.tanggal_akhir, order: 2, cls: 'acc', title: 'Minggu ' + m.minggu_ke + ': progres ' + fmtPct(m.aktual_pct),
+        body: '<div class="kv">' + (m.rencana_pct != null ? 'Rencana <b>' + fmtPct(m.rencana_pct) + '</b>' : '') + (m.laporan ? ' <a href="' + esc(m.laporan) + '" target="_blank" rel="noopener">Laporan mingguan</a>' : '') + '</div>'});
+    }
+    const byDay = new Map();
+    for (const h of (d.harian || [])){ if (!byDay.has(h.tanggal)) byDay.set(h.tanggal, []); byDay.get(h.tanggal).push(h); }
+    for (const [tgl, list] of byDay){
+      const entries = list.map(h => '<div class="entry"><div>' + esc(h.uraian) + '</div><div class="vol">' + fmtNum(h.volume) + ' ' + esc(h.satuan) + '</div>' + ((h.foto || []).length ? '<div class="fotos">' + h.foto.map(fotoHtml).join('') + '</div>' : '') + '</div>').join('');
+      nodes.push({date: tgl, order: 1, cls: 'good', title: 'Pekerjaan hari ini', body: '<div class="card">' + entries + '</div>'});
+    }
+    if (p.mulai) nodes.push({date: p.mulai, order: 0, cls: 'acc', title: 'Pekerjaan dimulai', body: ''});
+    nodes.sort((a, b) => String(b.date).localeCompare(String(a.date)) || b.order - a.order);
+    const firstPast = nodes.findIndex(n => n.date <= today);
+    $('tl').innerHTML = nodes.length ? nodes.map((n, i) => '<li class="node ' + n.cls + (i === firstPast ? ' current' : '') + '"><span class="dot" aria-hidden="true"></span><div class="when"><span>' + fmtDate(n.date) + '</span>' + (n.date > today ? '<span class="chip warn">Akan datang</span>' : '') + '</div><div class="what">' + n.title + '</div>' + n.body + '</li>').join('')
+      : '<li class="node hollow"><span class="dot"></span><div class="what">Pekerjaan belum dimulai</div></li>';
+
+    $('itemrows').innerHTML = (d.item || []).map(it => '<tr><td>' + esc(it.uraian) + '</td><td class="n" style="width:45%"><div style="display:flex;align-items:center;gap:8px;justify-content:flex-end"><div class="mini"><span style="width:' + Math.min(100, Number(it.selesai_pct || 0)) + '%"></span></div><span class="pct" style="font-size:12px">' + fmtPct(it.selesai_pct) + '</span></div></td></tr>').join('') || '<tr><td style="color:var(--ink-2)">Rincian item belum tersedia.</td></tr>';
+  }
+
+  async function load(){
+    const token = getToken();
+    if (!token){ $('status').innerHTML = 'Tautan pelacakan tidak lengkap. Gunakan tautan yang Anda terima lewat WhatsApp dari Mozaic.'; return; }
+    try {
+      const res = await fetch(API, {method: 'POST', headers: {'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY}, body: JSON.stringify({token})});
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const d = await res.json();
+      if (!d || d.ok === false){ $('status').innerHTML = '<b>Tautan tidak dikenal atau sudah tidak berlaku.</b><br>Minta tautan baru lewat WhatsApp Mozaic dengan menyebutkan nomor PO Anda.'; return; }
+      render(d);
+    } catch (e) {
+      $('status').innerHTML = 'Data belum bisa dimuat saat ini. Coba lagi beberapa saat, atau hubungi Mozaic lewat WhatsApp.';
+    }
+  }
+  load();
+})();
+</script>
+</body>
+</html>
